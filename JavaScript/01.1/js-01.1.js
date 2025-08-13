@@ -14,7 +14,12 @@
 // const idade = 18;
 // idade = 20; -> NÃO PODE
 
+
+
+
 // ----- Tipos de funções
+
+
 
 // Função simples
 const message = "<h2> Olá! Bem-vindo! Essa é sua primeira função! </h2>";
@@ -23,14 +28,15 @@ function showMessage() {
   document.write(message);
 }
 
-// Invocando a função:
-showMessage();
+showMessage(); // Invocando a função:
 
-// função com parâmetros
+
+
+// Função com parâmetros
 const user = "Max";
 
-function userMessage(user) {
-  // Essa função recebe um PARÂMETRO
+function userMessage(user) { // Essa função recebe um PARÂMETRO
+  
 
   document.write(`<h3> O que deseja fazer hoje, ${user}? </h3>`);
   // ${} -> Template Strings / Literal Strings
@@ -38,3 +44,61 @@ function userMessage(user) {
 }
 
 userMessage(user); // -> ARGUMENTO
+
+
+
+// Função com mais de um parâmetro
+const n1 = 10;
+const n2 = 12;
+
+function mult(){ // Essa funcão recebe dois parâmetros
+  let result = n1 * n2;
+  document.write(`A multiplicação de ${n1} e ${n2} é igual a ${result}`);
+
+}
+
+mult(n1, n2);
+
+
+
+// Função com retorno
+const num1 = 1000;
+const num2 = 5;
+
+function div(num1, num2){
+  return num1 / num2;
+}
+
+document.write(`<p> A divisão de ${num1} por ${num2} é igual a ${div(num1, num2)}. </p>`);
+
+
+
+// Função com diferentes retornos
+const number = 4;
+
+function pairOdd(number){
+
+  if(number % 2 ==0){
+    return 'par';
+  } else{
+    return 'ímpar';
+  }
+
+}
+
+document.write(`<p> O número ${number} é <strong> ${pairOdd(number)} </strong>. </p>`);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
