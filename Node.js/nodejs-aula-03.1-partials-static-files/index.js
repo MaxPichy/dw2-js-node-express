@@ -64,9 +64,11 @@ app.get(`/pedidos`, (req, res) => {
 });
 
 // ROTA DE PERFIL
-app.get(`/perfil`, (req,res) =>{
+// :user -> É um parâmetro da rota (OBRIGATÓRIO)
+// :user? -> É um parâmetro da rota (OPCIONAL)
+app.get(`/perfil/:user`, (req,res) =>{
     // Criando a variável que será enviada para a página
-    const user = "Max";
+    const user = req.params.user;
     res.render(`perfil`, {
         // Enviando variáveis para a página EJS
         user : user
