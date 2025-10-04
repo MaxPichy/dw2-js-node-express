@@ -1,0 +1,41 @@
+<%- include('partials/header.ejs'); %>
+<%- include('partials/navbar.ejs'); %>
+
+<div class="container">
+    <div class="card">
+    <div class="card-header">
+        <h1>Intrusos</h1>
+    </div>
+    <div class="card-body">
+        <table class="table table-bordered table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>Rosto</th>
+                    <th>Nome</th>
+                    <th>Habilidade</th>
+                    <th>Nação</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% Intruso.forEach(intruso => { %>
+                <tr>
+                    <td>
+                        <img src="<%= intruso.foto %>" alt="<%= intruso.nome %>" width="40px">
+                    </td>
+                    <td>
+                        <%= intruso.nome %>
+                    </td>
+                    <td>
+                        <%= intruso.habilidade %>
+                    </td>
+                    <td>
+                        <%= intruso.nacao %>
+                    </td>
+                </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<%- include('partials/footer.ejs'); %>
