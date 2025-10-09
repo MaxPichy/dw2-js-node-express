@@ -17,6 +17,9 @@ import ClientesController from "./controllers/ClientesController.js";
 import ProdutosController from "./controllers/ProdutosController.js";
 import PedidosController from "./controllers/PedidosController.js";
 
+// Configurando o express para permitir o recebimento de dados vindo de forms
+app.use(express.urlencoded({extended: false}));
+
 // Define o EJS como Renderizador de páginas
 app.set("view engine", "ejs");
 
@@ -39,6 +42,11 @@ connection.authenticate().then(() => {
 // Criando o bando de dados (se ele não existir)
 connection.query(`create database if not exists nossaloja;`).then(() => {
   console.log(`O banco de dados está criado!`);
+}).catch(error => {
+  console.log(error);
+});;
+connection.query(`use nossaloja;`).then(() => {
+  console.log(`O banco de dados está sendo usado corretamente!`);
 }).catch(error => {
   console.log(error);
 });;
