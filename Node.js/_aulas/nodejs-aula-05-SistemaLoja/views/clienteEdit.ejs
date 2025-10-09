@@ -7,7 +7,9 @@
                 <h1>Cadastrar Cliente</h1>
             </div>
             <div class="card-body">
-                <form action="" method="post">
+                <form action="/clientes/update" method="post">
+                    <input type="hidden" name="id" value="<%= cliente.id %>">
+
                     <label>Nome do cliente</label>
                     <input type="text" class="form-control" name="nome" placeholder="Insira o nome do cliente" 
                     value="<%= cliente.nome %>" required>
@@ -20,15 +22,13 @@
                     <input type="text" class="form-control mb-4" name="endereco" placeholder="Insira o endereço do cliente" 
                     value="<%= cliente.endereco %>" required>
 
-                    <input type="submit" class="btn btn-warning" value="Editar">
-                    <input type="reset" class="btn btn-danger" value="Limpar">
+                    <input type="submit" onclick="return confirm(`Confirma as alterações realizadas para o cliente <%= cliente.nome%>?`)"
+                    class="btn btn-warning" value="Editar">
+
+                    <a href="/clientes">
+                        <input type="button" class="btn btn-danger" value="Cancelar">
+                    </a>
                 </form>
-
-                <hr>
-
-                <a href="/clientes">
-                    <button class="btn btn-secondary">Voltar</button>
-                </a>
             </div>
         </div>
     </div>
