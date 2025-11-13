@@ -19,13 +19,13 @@ import TrocasController from './controllers/TrocasController.js';
 connection.query('CREATE DATABASE IF NOT EXISTS libWanShiTong;').then(() => {
     console.log('Banco criado com sucesso');
 }).catch(error => {
-    console.log(error);
+    console.log("O erro é", error);
 });
 
 connection.authenticate().then(() => {
     console.log('Conexão com o banco estabelecida com sucesso');
 }).catch(error => {
-    console.log(error);
+    console.log("O erro é", error);
 });
 
 // rotas

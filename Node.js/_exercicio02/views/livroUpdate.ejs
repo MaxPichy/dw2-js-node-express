@@ -1,0 +1,29 @@
+<%- include('../partials/header'); %>
+<%- include('../partials/navbar'); %>
+
+<div class="container">
+    <div class="card">
+    <div class="card-header">
+        <h1>Modificar Livro</h1>
+    </div>
+
+    <div class="card-body">
+        <h2>Quer mesmo alterar este pedaço de conhecimento? Que insolente!</h2>
+        <form method="POST" action="/livros/update/<%= livro.id %>">
+            <label class="form-label">Titulo</label>
+            <input class="form-control" type="text" name="titulo" placeholder="<%= livro.titulo %>">
+
+            <label class="form-label">Autor</label>
+            <input class="form-control" type="text" name="autor" placeholder="<%= livro.autor %>">
+
+            <label class="form-label">Ano</label>
+            <input class="form-control" type="number" name="ano" placeholder="<%= livro.ano %>">
+            <br>
+
+            <input class="btn btn-warning" type="submit" value="Alterar">
+            <input class="btn btn-secondary" type="reset" value="Resetar">
+        </form>
+    </div>
+</div>
+
+<%- include('../partials/footer'); %>

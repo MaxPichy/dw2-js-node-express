@@ -7,9 +7,9 @@
         <h1>Livros</h1>
     </div>
 
-    <!-- <div class="card-body">
+    <div class="card-body">
         <h2>Deseja deixar um novo livro? Criatura interessante...</h2>
-        <form action="livros/create" method="post">
+        <form method="post" action="/livros/new">
             <label class="form-label">Titulo</label>
             <input class="form-control" type="text" name="titulo">
 
@@ -23,7 +23,7 @@
             <button class="btn btn-success" type="submit">Entregar</button>
         </form>
     </div>
-    <hr> -->
+    <hr>
 
     <div class="card-body">
         <table class="table table-bordered table-striped table-hover">
@@ -36,7 +36,7 @@
                 </tr>
             </thead>
             <tbody>
-                <% Livro.forEach(livro => { %>
+                <% livros.forEach(livro => { %>
                 <tr>
                     <td>
                         <%= livro.titulo %>
@@ -47,20 +47,16 @@
                     <td>
                         <%= livro.ano %>
                     </td>
-                <% }); %>
+                
                     <td>
-                        <!-- <button class="btn btn-danger">
-                            <a href="livros/delete/<%= livro.id %>" onclick="return 
-                            confirm('Deseja destruir todo o conhecimento presente em <%= livro.titulo %>, mortal insolente?')"></a>
+                        <a href="livros/delete/<%= livro.id %>" class="btn btn-danger"
+                        onclick="return confirm('Deseja destruir todo o conhecimento presente em <%= livro.titulo %>, mortal insolente?')">
                             Destruir
-                        </button>
-                        <button class="btn btn-warning">
-                            <a href="livros/update/<%= livro.id %>" class="link"></a>
-                            Modificar
-                        </button> -->
+                        </a>
+                        <a href="livros/edit/<%= livro.id %>" class="btn btn-warning">Modificar</a>
                     </td>
                 </tr>
-                
+                <% }); %>
             </tbody>
         </table>
     </div>
