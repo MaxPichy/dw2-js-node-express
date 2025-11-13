@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Movies</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body>
+    <h1 style="text-align: center;">The Movies</h1>
+    <hr>
+
+    <div class="container">
+        <h1>Cadastrar novo filme:</h1>
+        <form action="filmes/new" method="post">
+            <label class="form-label">Título:</label>
+            <input class="form-input" type="text" name="titulo">
+            <labelclass="form-label">Gênero:</label>
+            <input class="form-input" type="text" name="genero">
+            <labelclass="form-label">Duração:</label>
+            <input class="form-input" type="number" name="duracao">
+            <input class="form-input" type="submit" value="Cadastrar">
+        </form>
+    </div>
+    <hr>
+
+    <table>
+        <thead>
+            <th style="width: 150px; text-align: left;">Título</th>
+            <th style="width: 150px; text-align: left;">Gênero</th>
+            <th style="width: 150px; text-align: left;">Duração</th>
+            <th style="width: 150px; text-align: left;">Ações</th>
+        </thead>
+            <% filmes.forEach(filme => { %>
+                <tr>
+                    <td><%= filme.titulo %></td>
+                    <td><%= filme.genero %></td>
+                    <td><%= filme.duracao %></td>
+                    <td>
+                        <a href="/filmes/delete/<%= filme.id %>">
+                            <button onclick="return confirm('Deseja mesmo excluir o filme <%= filme.titulo %>?')">
+                                Excluir
+                            </button>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="/filmes/update/<%= filme.id %>">
+                            <button>
+                                Alterar
+                            </button>
+                        </a>
+                    </td>
+                </tr>
+            <% }) %>
+        <tbody>
+
+        </tbody>
+    </table>
+
+    <footer style="text-align: center;">
+        <hr>
+        The Movies &copy; 2025
+    </footer>
+</body>
+</html>

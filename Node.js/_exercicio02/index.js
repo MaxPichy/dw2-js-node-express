@@ -2,6 +2,9 @@
 import express from 'express';
 const app = express();
 
+// sequelize
+import connection from './config/sequelize-config.js';
+
 // models
 import Livro from './models/Livro.js';
 import Intruso from './models/Intruso.js';
@@ -11,6 +14,19 @@ import Troca from './models/Troca.js';
 import LivrosController from './controllers/LivrosController.js';
 import IntrusosController from './controllers/IntrusosController.js';
 import TrocasController from './controllers/TrocasController.js';
+
+// conexão e criação do banco de dados
+connection.query('CREATE DATABASE IF NOT EXISTS libWanShiTong;').then(() => {
+    console.log('Banco criado com sucesso');
+}).catch(error => {
+    console.log(error);
+});
+
+connection.authenticate().then(() => {
+    console.log('Conexão com o banco estabelecida com sucesso');
+}).catch(error => {
+    console.log(error);
+});
 
 // rotas
 app.set('view engine', 'ejs');
