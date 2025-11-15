@@ -1,5 +1,5 @@
-<%- include('../partials/header'); %>
-<%- include('../partials/navbar'); %>
+<%- include('partials/header.ejs'); %>
+<%- include('partials/navbar.ejs'); %>
 
 <div class="container">
     <div class="card">
@@ -9,15 +9,15 @@
 
     <div class="card-body">
         <h2>Quer mesmo alterar este pedaço de conhecimento? Que insolente!</h2>
-        <form method="POST" action="/livros/update/<%= livro.id %>">
+        <form method="post" action="/livros/update/<%= livro.id %>">
             <label class="form-label">Titulo</label>
-            <input class="form-control" type="text" name="titulo" placeholder="<%= livro.titulo %>">
+            <input class="form-control" type="text" name="titulo" value="<%= livro.titulo %>">
 
             <label class="form-label">Autor</label>
-            <input class="form-control" type="text" name="autor" placeholder="<%= livro.autor %>">
+            <input class="form-control" type="text" name="autor" value="<%= livro.autor %>">
 
             <label class="form-label">Ano</label>
-            <input class="form-control" type="number" name="ano" placeholder="<%= livro.ano %>">
+            <input class="form-control" type="number" name="ano" value="<%= livro.ano %>">
             <br>
 
             <input class="btn btn-warning" type="submit" value="Alterar">
@@ -26,4 +26,4 @@
     </div>
 </div>
 
-<%- include('../partials/footer'); %>
+<%- include('partials/footer.ejs'); %>

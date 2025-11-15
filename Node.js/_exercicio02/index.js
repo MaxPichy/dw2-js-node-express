@@ -1,6 +1,7 @@
 // express
 import express from 'express';
 const app = express();
+app.use(express.urlencoded({extended: true}));
 
 // sequelize
 import connection from './config/sequelize-config.js';

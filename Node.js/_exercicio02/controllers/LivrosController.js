@@ -33,7 +33,7 @@ router.get('/livros/edit/:id', (req, res) => {
     const id = req.params.id;
 
     Livro.findByPk(id).then(livro => {
-        res.render('/livroUpdate', {
+        res.render('livroUpdate', {
             livro: livro
         });
     }).catch(error => {
@@ -53,13 +53,13 @@ router.post('/livros/update/:id', (req, res) => {
         ano: ano
     },
     { where: { id: id }}).then(() => {
-        res.render('/livros');
+        res.redirect('/livros');
     }).catch(error => {
         console.log(error);
     });
 });
 
-router.get('livros/delete/:id', (req, res) => {
+router.get('/livros/delete/:id', (req, res) => {
     const id = req.params.id;
 
     Livro.destroy({
@@ -67,7 +67,7 @@ router.get('livros/delete/:id', (req, res) => {
             id: id
         }
     }).then(() => {
-        res.render('/livros');
+        res.redirect('/livros');
     }).catch(error => {
         console.log(error);
     })
