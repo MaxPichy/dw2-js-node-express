@@ -6,6 +6,25 @@
     <div class="card-header">
         <h1>Trocas</h1>
     </div>
+
+    <div class="card-body">
+        <h2>Uma troca, certo? O que está disposto a oferecer?</h2>
+        <form method="post" action="/trocas/new">
+            <label class="form-label">Intruso</label>
+            <input class="form-control" type="text" name="intrusoNome">
+
+            <label class="form-label">Livro</label>
+            <input class="form-control" type="text" name="livroTitulo">
+
+            <label class="form-label">Item</label>
+            <input class="form-control" type="text" name="item">
+            <br>
+
+            <button class="btn btn-success" type="submit">Trocar</button>
+        </form>
+    </div>
+    <hr>
+
     <div class="card-body">
         <table class="table table-bordered table-striped table-hover">
             <thead>
@@ -13,19 +32,29 @@
                     <th>Intruso</th>
                     <th>Livro</th>
                     <th>Item Trocado</th>
+                    <th>Ações</th>
                 </tr>
             </thead>
             <tbody>
-                <% Troca.forEach(troca => { %>
+                <% trocas.forEach(troca => { %>
                 <tr>
                     <td>
-                        <%= troca.intruso %>
+                        <%= troca.idIntruso %>
                     </td>
                     <td>
-                        <%= troca.livro %>
+                        <%= troca.idLivro %>
                     </td>
                     <td>
                         <%= troca.item %>
+                    </td>
+
+                    <td>
+                        <a class="btn btn-danger" href="trocas/delete/<%= troca.id %>"
+                        onclick="return confirm('Acha que tem o que é necessário para pegar <%= troca.item %> de volta?')">
+                            Desfazer
+                        </a>
+
+                        <a class="btn btn-warning" href="trocas/edit/<%= troca.id %>">Mudar</a>
                     </td>
                 </tr>
                 <% }); %>

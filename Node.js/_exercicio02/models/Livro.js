@@ -41,5 +41,5 @@ const Livro = connection.define('livros', {
     // }
 });
 
-Livro.sync({ force: false });
+Livro.sync({force: false});
 export default Livro;

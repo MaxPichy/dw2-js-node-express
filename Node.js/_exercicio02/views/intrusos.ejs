@@ -6,6 +6,28 @@
     <div class="card-header">
         <h1>Intrusos</h1>
     </div>
+
+    <div class="card-body">
+        <h2>Um novo intruso em minha biblioteca? O que possui para oferecer, <i>humano</i>?</h2>
+        <form method="post" action="/intrusos/new">
+            <label class="form-label">Rosto</label>
+            <input class="form-control" type="file" name="foto">
+
+            <label class="form-label">Nome</label>
+            <input class="form-control" type="text" name="nome">
+
+            <label class="form-label">Habilidade</label>
+            <input class="form-control" type="text" name="habilidade">
+
+            <label class="form-label">Nação</label>
+            <input class="form-control" type="text" name="nacao">   
+            <br>
+
+            <button class="btn btn-success" type="submit">Entrar?</button>         
+        </form>
+    </div>
+    <hr>
+
     <div class="card-body">
         <table class="table table-bordered table-striped table-hover">
             <thead>
@@ -14,10 +36,11 @@
                     <th>Nome</th>
                     <th>Habilidade</th>
                     <th>Nação</th>
+                    <th>Ações</th>
                 </tr>
             </thead>
             <tbody>
-                <% Intruso.forEach(intruso => { %>
+                <% intrusos.forEach(intruso => { %>
                 <tr>
                     <td>
                         <img src="/imgs/<%= intruso.foto %>" alt="<%= intruso.nome %>" width="40px">
@@ -30,6 +53,15 @@
                     </td>
                     <td>
                         <%= intruso.nacao %>
+                    </td>
+
+                    <td>
+                        <a href="intrusos/delete/<%= intruso.id %>" class="btn btn-danger"
+                        onclick="return confirm('Suma daqui <%= intruso.nome %>, você violou as regras de minha biblioteca, mortal parvo!')">
+                            Expulsar
+                        </a>
+
+                        <a href="intrusos/edit/<%= intruso.id %>" class="btn btn-warning" >Modificar</a>
                     </td>
                 </tr>
                 <% }); %>

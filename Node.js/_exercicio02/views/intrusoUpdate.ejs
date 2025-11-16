@@ -1,0 +1,32 @@
+<%- include('partials/header.ejs'); %>
+<%- include('partials/navbar.ejs'); %>
+
+<div class="container">
+    <div class="card">
+    <div class="card-header">
+        <h1>Modificar Intruso</h1>
+    </div>
+
+    <div class="card-body">
+        <h2>Alma em um corpo diferente? Reencarnação? <i>Farsa</i>?</h2>
+        <form method="post" action="/intrusos/update/<%= intruso.id %>">
+            <!-- <label class="form-label">Rosto</label>
+            <input class="form-control" type="file" name="foto" value="<%= intruso.foto %>"> -->
+
+            <label class="form-label">Nome</label>
+            <input class="form-control" type="text" name="nome" value="<%= intruso.nome %>">
+
+            <label class="form-label">Habilidade</label>
+            <input class="form-control" type="text" name="habilidade" value="<%= intruso.habilidade %>">
+
+            <label class="form-label">Nação</label>
+            <input class="form-control" type="text" name="nacao" value="<%= intruso.nacao %>">
+            <br>
+
+            <input class="btn btn-warning" type="submit" value="Alterar">
+            <input class="btn btn-secondary" type="reset" value="Resetar">
+        </form>
+    </div>
+</div>
+
+<%- include('partials/footer.ejs'); %>

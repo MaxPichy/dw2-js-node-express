@@ -1,0 +1,29 @@
+<%- include('partials/header.ejs'); %>
+<%- include('partials/navbar.ejs'); %>
+
+<div class="container">
+    <div class="card">
+    <div class="card-header">
+        <h1>Modificar Troca</h1>
+    </div>
+
+    <div class="card-body">
+        <h2>Não gostou da troca? Você testa minha paciência, humano...</h2>
+        <form method="post" action="/trocas/update/<%= troca.id %>">
+            <label class="form-label">Intruso</label>
+            <input class="form-control" type="number" name="idIntruso" value="<%= troca.idIntruso %>">
+
+            <label class="form-label">Livro</label>
+            <input class="form-control" type="number" name="idLivro" value="<%= troca.idLivro %>">
+
+            <label class="form-label">Item</label>
+            <input class="form-control" type="text" name="item" value="<%= troca.item %>">
+            <br>
+
+            <input class="btn btn-warning" type="submit" value="Alterar">
+            <input class="btn btn-secondary" type="reset" value="Resetar">
+        </form>
+    </div>
+</div>
+
+<%- include('partials/footer.ejs'); %>
